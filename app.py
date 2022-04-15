@@ -13,7 +13,7 @@ app = Flask(__name__)
 def home():
     baseUrl = 'http://ip-api.com/json/'
     fullUrl = baseUrl + request.remote_addr
-    ipData = requests.get(fullUrl)
+    ipData = (requests.get(fullUrl)).json()
     return render_template("index.html", value=fullUrl, value2=ipData)
     
 @app.route("/about")
