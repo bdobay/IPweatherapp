@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask import request
+import requests
 import os
 
 app = Flask(__name__)
@@ -15,3 +16,5 @@ def about():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5005))
     app.run(debug=True,host='0.0.0.0',port=port)
+    
+response = requests.get("http://ip-api.com/json/"+request.remote_addr)
