@@ -5,11 +5,13 @@ import os
 
 app = Flask(__name__)
 
-a = "hi"
+baseUrl = 'http://ip-api.com/json/'
+
+clientIP = type(request.remote_addr)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", value = clientIP)
     
 @app.route("/about")
 def about():
