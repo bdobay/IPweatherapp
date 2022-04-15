@@ -7,11 +7,10 @@ app = Flask(__name__)
 
 baseUrl = 'http://ip-api.com/json/'
 
-clientIP = type(request.remote_addr)
 
 @app.route("/")
 def home():
-    return render_template("index.html", value = clientIP)
+    return render_template("index.html", value=baseUrl)
     
 @app.route("/about")
 def about():
