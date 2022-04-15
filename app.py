@@ -6,11 +6,12 @@ import os
 app = Flask(__name__)
 
 baseUrl = 'http://ip-api.com/json/'
-hi = type(request.remote_addr)
+
+fullUrl = baseUrl + str(request.remote_addr)
 
 @app.route("/")
 def home():
-    return render_template("index.html", value=hi)
+    return render_template("index.html", value=fullUrl)
     
 @app.route("/about")
 def about():
