@@ -22,7 +22,7 @@ pipeline {
        
        steps {
           sh "sudo docker rm --force my-flask-app"         
-          sh "sudo docker run -p 5003:5005 --name my-flask-app -d my-flask-app"
+          sh "sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app"
    }      
    }
 
@@ -30,7 +30,7 @@ pipeline {
        
        steps {
           //sh "sudo docker rm --force my-flask-app"         
-          //sh "sudo docker run -p 5003:5005 --name my-flask-app -d my-flask-app"
+          //sh "sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app"
           sh "sudo docker ps" 
    }      
    }   
