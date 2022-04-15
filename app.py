@@ -5,11 +5,10 @@ import os
 
 app = Flask(__name__)
 
+a = "hi"
+
 @app.route("/")
 def home():
-    baseUrl = 'http://ip-api.com/json/'
-    a = request.remote_addr
-    b = type(a)
     return render_template("index.html")
     
 @app.route("/about")
