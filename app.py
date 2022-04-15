@@ -12,7 +12,8 @@ hi = 2
 
 @app.route("/")
 def home():
-    return render_template("index.html", value=hi)
+    fullUrl = baseUrl + request.remote_addr
+    return render_template("index.html", value=fullUrl)
     
 @app.route("/about")
 def about():
