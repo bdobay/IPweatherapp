@@ -7,6 +7,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+    baseUrl = 'http://ip-api.com/json/'
+    a = request.remote_addr
+    b = type(a)
     return render_template("index.html")
     
 @app.route("/about")
@@ -17,9 +20,5 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5005))
     app.run(debug=True,host='0.0.0.0',port=port)
     
-baseUrl = 'http://ip-api.com/json/'
 
-a = request.remote_addr
-
-b = type(a)
     
