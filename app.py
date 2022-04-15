@@ -8,7 +8,7 @@ app = Flask(__name__)
 baseUrl = 'http://ip-api.com/json/'
 
 fullUrl = baseUrl
-hi = request.remote_addr
+hi = 2
 
 @app.route("/")
 def home():
