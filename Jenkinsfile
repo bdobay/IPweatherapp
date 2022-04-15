@@ -6,7 +6,7 @@ pipeline {
     //stage('Checkout SCM')   {
         
       //  steps {
-      //git ('https://github.com/arksinha93/python-flask-demo.git')
+      //git ('https://github.com/bdobay/IPweatherapp')
       //if (!fileExists("Dockerfile")) {
         // error('Dockerfile missing.')  
 
@@ -22,7 +22,7 @@ pipeline {
        
        steps {
           sh "sudo docker rm --force my-flask-app"         
-          sh "sudo docker run -p 5000:5000 --name my-flask-app -d my-flask-app"
+          sh "sudo docker run -p 5003:5001 --name my-flask-app -d my-flask-app"
    }      
    }
 
@@ -30,7 +30,7 @@ pipeline {
        
        steps {
           //sh "sudo docker rm --force my-flask-app"         
-          //sh "sudo docker run -p 5000:5000 --name my-flask-app -d my-flask-app"
+          //sh "sudo docker run -p 5003:5001 --name my-flask-app -d my-flask-app"
           sh "sudo docker ps" 
    }      
    }   
