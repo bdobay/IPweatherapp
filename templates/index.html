@@ -3,7 +3,7 @@
   <body style="background-color:powderblue;">
     {% extends "template.html" %}
     {% block content %}
-    <h1> Flask is a Python Module and Framework </h1>
+    <h1> Your current IP address is: <b>"{{request.remote_addr}}"</b> </h1>
     <p> Flask is Fun </p>
     {% endblock %}
   </body>
