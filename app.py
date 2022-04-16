@@ -20,7 +20,7 @@ def home():
     weatherUrl = 'https://api.open-meteo.com/v1/forecast?latitude='+currentLat+'&longitude='+currentLon
     weatherData = (requests.get(weatherUrl)).json()
     return render_template("index.html", value=fullUrl, value2=ipData, 
-                           value3=weatherData)
+                           value3=ipData)
     
 @app.route("/about")
 def about():
