@@ -15,8 +15,8 @@ def home():
     fullUrl = baseUrl + request.remote_addr
     ipData = (requests.get(fullUrl)).json()
     currentCity = ipData['city']
-    currentLat = ipData['lat']
-    currentLon = ipData['lon']
+    currentLat = str(ipData['lat'])
+    currentLon = str(ipData['lon'])
     weatherUrl = 'https://api.open-meteo.com/v1/forecast?latitude='+currentLat+'&longitude='+currentLon
     return render_template("index.html", value=fullUrl, value2=ipData, 
                            value3=weatherUrl)
