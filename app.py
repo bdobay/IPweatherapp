@@ -20,8 +20,9 @@ def home():
     timeZone = str(ipData['timezone'])
     weatherUrl = 'https://api.open-meteo.com/v1/forecast?latitude='+currentLat+'&longitude='+currentLon+'&daily=temperature_2m_max,temperature_2m_min&timezone='+timeZone
     weatherData = (requests.get(weatherUrl)).json()
+    dailyMin = weatherData['daily']['temperature_2m_min'][0]
     return render_template("index.html", value=fullUrl, value2=ipData, 
-                           value3=weatherData)
+                           value3=weatherData,value4=dailyMin)
     
 @app.route("/about")
 def about():
