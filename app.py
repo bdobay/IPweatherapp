@@ -14,7 +14,8 @@ def home():
     baseUrl = 'http://ip-api.com/json/'
     fullUrl = baseUrl + request.remote_addr
     ipData = (requests.get(fullUrl)).json()
-    return render_template("index.html", value=fullUrl, value2=ipData)
+    currentCity = ipData['city']
+    return render_template("index.html", value=fullUrl, value2=ipData, value3=currentCity)
     
 @app.route("/about")
 def about():
