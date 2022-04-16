@@ -15,7 +15,11 @@ def home():
     fullUrl = baseUrl + request.remote_addr
     ipData = (requests.get(fullUrl)).json()
     currentCity = ipData['city']
-    return render_template("index.html", value=fullUrl, value2=ipData, value3=currentCity)
+    currentLat = ipData['lat']
+    currentLon = ipData['lon']
+    weatherUrl = 'https://api.open-meteo.com/v1/forecast?latitude='+currentLat+'&longitude='+currentLon
+    return render_template("index.html", value=fullUrl, value2=ipData, 
+                           value3=weatherUrl)
     
 @app.route("/about")
 def about():
