@@ -1,4 +1,4 @@
-pipeline {
+epipeline {
    
    agent any //{label 'slave_linux'}
     stages {
@@ -18,13 +18,6 @@ pipeline {
    }
    }
 
-    stage('Test') {
-       
-       steps {
-          sh "sudo docker rm --force my-flask-app"         
-          sh "sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app"
-   }      
-   }
 
     stage('Deploy') {
        
