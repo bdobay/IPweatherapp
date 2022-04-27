@@ -32,7 +32,8 @@ pipeline {
           sh "ls"
           sh "terraform init"         
           sh "terraform apply --auto-approve"
-          sh "terraform output > /var/tmp/appIPAddress.txt"       
+          sh "terraform output > /var/tmp/appIPAddress.txt"
+          sh "ansible --version"       
           
    }      
    }   
