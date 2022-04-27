@@ -12,26 +12,26 @@ pipeline {
 
     stage('Build') {
        
-       steps {       
-          sh "sudo docker build -t my-flask-app ."
+       steps {
+          sh "pwd"
+          sh "sudo docker build -t my-flask-app ." 
+          
           
    }
    }
 
-    stage('Test') {
-       
-       steps {
-          sh "sudo docker rm --force my-flask-app"         
-          sh "sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app"
-   }      
-   }
+
 
     stage('Deploy') {
        
        steps {
-          //sh "sudo docker rm --force my-flask-app"         
-          //sh "sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app"
-          sh "sudo docker ps" 
+          sh "sudo docker rm --force my-flask-app"         
+          sh "sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app"
+          sh "sudo docker ps"
+          sh "sudo cd /home/ec2-user/Terraform"
+          sh "terraform init"         
+          sh "terraform apply --auto-approve"       
+          
    }      
    }   
      }  // End of stages
