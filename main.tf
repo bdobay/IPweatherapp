@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "Redhat" {
 ami = "ami-03ededff12e34e59e"
 instance_type = "t2.micro"
-key_name = "Devops"
+key_name = "AppMachines"
 security_groups = ["default"]
 count = 2
 }
