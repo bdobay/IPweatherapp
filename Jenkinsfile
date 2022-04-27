@@ -29,6 +29,8 @@ pipeline {
           sh "sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app"
           sh "sudo docker ps"
           sh "sudo cd /home/ec2-user/Terraform"
+          sh "pwd"
+          sh "ls"
           sh "terraform init"         
           sh "terraform apply --auto-approve"       
           
