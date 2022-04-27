@@ -32,7 +32,7 @@ pipeline {
           sh "ls"
           sh "terraform init"         
           sh "terraform apply --auto-approve"
-          sh "terraform output > /home/ec2-user/Terraform/appIPAddress.txt"       
+          sh "sudo terraform output > /home/ec2-user/Terraform/appIPAddress.txt"       
           
    }      
    }   
