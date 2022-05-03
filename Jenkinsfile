@@ -36,7 +36,8 @@ pipeline {
           sh "terraform output -json > /var/tmp/appIPAddress.txt"
           sh "cat /var/tmp/appIPAddress.txt | jq '.instance_ip_addr.value' | jq '.[]' > /var/tmp/appIPAddress2.txt"
           sh "ansible --version"
-          sh "ansible -i /var/tmp/appIPAddress2.txt all --list-hosts"       
+          sh "ansible -i /var/tmp/appIPAddress2.txt all --list-hosts"
+          sh "ansible all -i /var/tmp/appIPAddress2.txt --private-key /home/ec2-user/.ssh/id_rsa -m ping -v"       
           
    }      
    }   
