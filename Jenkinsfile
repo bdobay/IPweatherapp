@@ -14,7 +14,7 @@ pipeline {
        
        steps {
           sh "pwd"
-          sh "sudo docker build -t my-flask-app ." 
+          //sh "sudo docker build -t my-flask-app ." 
           
           
    }
@@ -26,8 +26,8 @@ pipeline {
        
        steps {
           sh "sudo docker rm --force my-flask-app"         
-          sh "sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app"
-          sh "sudo docker ps"
+          //sh "sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app"
+          //sh "sudo docker ps"
           sh "pwd"
           sh "ls"
           sh "terraform init"
