@@ -34,7 +34,7 @@ pipeline {
           sh "terraform destroy --auto-approve"         
           sh "terraform apply --auto-approve"
           sh "terraform output -json > /var/tmp/appIPAddress.txt"
-          sh "sudo cat /var/tmp/appIPAddress.txt | jq '.instance_ip_addr.value' | jq '.[]' > /var/tmp/appIPAddress2.txt"
+          sh "cat /var/tmp/appIPAddress.txt | jq '.instance_ip_addr.value' | jq '.[]' > /var/tmp/appIPAddress2.txt"
           sh "ansible --version"
           sh "ansible -i /var/tmp/appIPAddress2.txt all --list-hosts"       
           
