@@ -1,6 +1,7 @@
 
 variable "numInstance" {
-  default = 2
+  type = number
+  default = "2"
 }
 
 provider "aws" {
