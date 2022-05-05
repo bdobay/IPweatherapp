@@ -11,8 +11,9 @@
     service:
       name: docker 
       state: started
-       
+      
   - name: Copy over files
+    become: yes
     shell: mkdir /var/tmp
     
   - name: Copy over files
