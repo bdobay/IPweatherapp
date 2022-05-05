@@ -11,3 +11,32 @@
     service:
       name: docker 
       state: started
+       
+  - name: Copy over files
+    shell: mkdir /var/tmp
+    
+  - name: Copy over files
+    shell: cd /var/tmp
+    
+  - name: Copy over files
+    shell: wget https://github.com/bdobay/IPweatherapp/archive/refs/heads/master.zip
+    
+  - name: Copy over files
+    shell: unzip master.zip
+    
+  - name: Copy over files
+    shell: cd IPweatherapp-master
+
+  - name: Copy over files
+    shell: sudo docker build -t my-flask-app .   
+
+  - name: Copy over files
+    shell: sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app
+
+
+    
+
+    
+       
+    
+              
