@@ -38,7 +38,7 @@ pipeline {
           sh "ansible --version"
           sh "ansible -i /var/tmp/appIPAddress2.txt all --list-hosts"
           sh "sleep 10"
-          sh "sudo ansible-playbook all -i /var/tmp/appIPAddress2.txt --private-key /var/tmp/id_rsa --user ec2-user -m ping -v"       
+          sh "sudo ansible-playbook all -i /var/tmp/appIPAddress2.txt --private-key /var/tmp/id_rsa --user ec2-user playbook.yml"       
           
    }      
    }   
