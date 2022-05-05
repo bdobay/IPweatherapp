@@ -10,10 +10,6 @@ security_groups = ["default"]
 count = 2
 }
 
-output "instance_ip_addr" {
-value = aws_instance.Redhat[*].public_ip
-
-}
 
 
 resource "aws_lb_target_group_attachment" "test" {
