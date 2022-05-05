@@ -13,7 +13,7 @@ count = 2
 
 
 resource "aws_lb_target_group_attachment" "test" {
-  num = aws_instance.Redhat.count
+  num = length(aws_instance.Redhat)
   target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:128570722676:targetgroup/testgroup/080953d9e5b2998d"
   target_id        = aws_instance.Redhat[num.index].id
   port             = 5004
