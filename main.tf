@@ -21,7 +21,7 @@ value = aws_instance.Redhat[*].id
 
 resource "aws_lb_target_group_attachment" "test" {
   target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:128570722676:targetgroup/testgroup/080953d9e5b2998d"
-  target_id        = instance_id
+  target_id        = $instance_id
   port             = 5004
 }
 
