@@ -37,6 +37,7 @@ pipeline {
           sh "cat /var/tmp/appIPAddress.txt | jq '.instance_ip_addr.value' | jq '.[]' > /var/tmp/appIPAddress2.txt"
           sh "ansible --version"
           sh "ansible -i /var/tmp/appIPAddress2.txt all --list-hosts"
+          sh "sleep 10"
           sh "sudo ansible all -i /var/tmp/appIPAddress2.txt --private-key /var/tmp/id_rsa --user ec2-user -m ping -v"       
           
    }      
