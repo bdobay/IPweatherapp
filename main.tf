@@ -10,6 +10,12 @@ security_groups = ["default"]
 count = 2
 }
 
+resource "aws_lb_target_group_attachment" "test" {
+  target_group_arn = arn:aws:elasticloadbalancing:us-east-1:128570722676:targetgroup/testgroup/080953d9e5b2998d
+  target_id        = aws_instance.Redhat.id
+  port             = 5004
+}
+
 
 
 
