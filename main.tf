@@ -42,7 +42,7 @@ resource "aws_lb" "test" {
 resource "aws_lb_listener" "testListener" {
   load_balancer_arn = aws_lb.test.arn
   port              = "5004"
-  protocol          = "TCP"
+  protocol          = "HTTP"
   
 
   default_action {
