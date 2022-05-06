@@ -21,7 +21,7 @@ subnet_id = "subnet-0d70c33cbeb941fed"
 
 resource "aws_lb_target_group_attachment" "test" {
   count = var.numInstance
-  target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:128570722676:targetgroup/testgroup/080953d9e5b2998d"
+  target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:128570722676:targetgroup/testTarget/8da57b50ec5d5552"
   target_id        = aws_instance.Redhat[count.index].id
   port             = 5004
 }
@@ -42,12 +42,12 @@ resource "aws_lb" "test" {
 resource "aws_lb_listener" "testListener" {
   load_balancer_arn = aws_lb.test.arn
   port              = "5004"
-  protocol          = "HTTP"
+  protocol          = "TCP"
   
 
   default_action {
     type             = "forward"
-    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:128570722676:targetgroup/testgroup/080953d9e5b2998d"
+    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:128570722676:targetgroup/testTarget/8da57b50ec5d5552"
   }
 }
 
