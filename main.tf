@@ -12,7 +12,7 @@ resource "aws_instance" "Redhat" {
 ami = "ami-03ededff12e34e59e"
 instance_type = "t2.micro"
 key_name = "AppMachines"
-security_groups = ["default"]
+vpc_security_group_ids = "sg-0f86156c988e92b8a"
 count = var.numInstance
 subnet_id = "subnet-0d70c33cbeb941fed"
 }
