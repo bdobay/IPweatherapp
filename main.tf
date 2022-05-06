@@ -26,9 +26,32 @@ resource "aws_lb_target_group_attachment" "test" {
 }
 
 
+resource "aws_lb" "test" {
+  name               = "testLoadBalancer"
+  internal           = false
+  load_balancer_type = "network"
+
+}
+
+
+resource "aws_lb_listener" "testListener" {
+  load_balancer_arn = aws_lb.test.arn
+  port              = "5004"
+  protocol          = "TCP"
+  
+
+  default_action {
+    type             = "forward"
+    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:128570722676:targetgroup/testgroup/080953d9e5b2998d"
+  }
+}
+
+
+
+
 
 
 output "instance_ip_addr" {
-value = aws_instance.Redhat[*].public_ip
+value = aws_instance.Redhat[*].private_ip
 
 }
