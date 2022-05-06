@@ -9,7 +9,8 @@
       state: present
   - name: Ensure Docker is running
     service:
-      name: docker 
+      name: docker
+      enabled: yes 
       state: started
       
   - name: Copy over files
