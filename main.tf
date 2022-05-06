@@ -14,6 +14,7 @@ instance_type = "t2.micro"
 key_name = "AppMachines"
 security_groups = ["default"]
 count = var.numInstance
+subnet_id = "subnet-0d70c33cbeb941fed"
 }
 
 
@@ -30,6 +31,10 @@ resource "aws_lb" "test" {
   name               = "testLoadBalancer"
   internal           = false
   load_balancer_type = "network"
+  
+  subnet_mapping {
+    subnet_id            = "subnet-0d70c33cbeb941fed"
+  }
 
 }
 
