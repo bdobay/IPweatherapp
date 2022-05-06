@@ -13,19 +13,19 @@
       enabled: yes 
       state: started
       
-  - name: Copy over files
+  - name: Download application
     shell: wget https://github.com/bdobay/IPweatherapp/archive/refs/heads/master.zip
     
-  - name: Copy over files
+  - name: Unzip
     shell: unzip master.zip   
 
-  - name: Copy over files
+  - name: Build Docker image of application
     shell: sudo docker build -t my-flask-app .
     args:
         chdir: "./IPweatherapp-master"
        
 
-  - name: Copy over files
+  - name: Run Docker build
     shell: sudo docker run -p 5004:5005 --name my-flask-app -d my-flask-app
 
 
