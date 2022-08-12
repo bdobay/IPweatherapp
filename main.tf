@@ -1,4 +1,3 @@
-
 variable "numInstance" {
   type = number
   default = "2"
@@ -6,6 +5,8 @@ variable "numInstance" {
 
 provider "aws" {
   region = "us-east-1"
+  access_key = "AKIAR333JRF2O4KGQDHT"
+  secret_key = "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"
 }
 
 resource "aws_instance" "Redhat" {
